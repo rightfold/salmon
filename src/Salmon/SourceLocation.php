@@ -20,4 +20,17 @@ final class SourceLocation
         $this->line = $line;
         $this->column = $column;
     }
+
+    public function advance(string $character): void
+    {
+        if ($character === "\n")
+        {
+            ++$this->line;
+            $this->column = 1;
+        }
+        else
+        {
+            ++$this->column;
+        }
+    }
 }

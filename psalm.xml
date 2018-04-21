@@ -5,6 +5,7 @@
     xsi:schemaLocation="/home/r/salmon/vendor/vimeo/psalm/src/config.xsd">
     <projectFiles>
         <directory name="src" />
+        <directory name="test" />
     </projectFiles>
 
     <issueHandlers>
@@ -31,5 +32,7 @@
         <UnresolvableInclude errorLevel="error" />
 
         <RawObjectIteration errorLevel="error" />
+
+        <ForbiddenCode errorLevel="info" />
     </issueHandlers>
 </psalm>
