@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<psalm
+    totallyTyped="true"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="/home/r/salmon/vendor/vimeo/psalm/src/config.xsd">
+    <projectFiles>
+        <directory name="src" />
+    </projectFiles>
+
+    <issueHandlers>
+        <LessSpecificReturnType errorLevel="error" />
+
+        <DeprecatedMethod errorLevel="info" />
+        <DeprecatedProperty errorLevel="info" />
+        <DeprecatedClass errorLevel="info" />
+
+        <MissingClosureReturnType errorLevel="error" />
+        <MissingReturnType errorLevel="error" />
+        <MissingPropertyType errorLevel="error" />
+        <InvalidDocblock errorLevel="error" />
+        <MisplacedRequiredParam errorLevel="error" />
+
+        <PropertyNotSetInConstructor errorLevel="error" />
+        <MissingConstructor errorLevel="error" />
+        <MissingClosureParamType errorLevel="error" />
+        <MissingParamType errorLevel="error" />
+
+        <DocblockTypeContradiction errorLevel="error" />
+        <RedundantConditionGivenDocblockType errorLevel="error" />
+
+        <UnresolvableInclude errorLevel="error" />
+
+        <RawObjectIteration errorLevel="error" />
+    </issueHandlers>
+</psalm>

@@ -1,0 +1,11 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Salmon\\": "src/Salmon/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "7.1.4",
+        "vimeo/psalm": "1.1.1"
+    }
+}
