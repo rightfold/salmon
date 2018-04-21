@@ -3,6 +3,8 @@ declare(strict_types = 1);
 
 namespace Salmon\Node\Expression;
 
+use Salmon\Generate;
+use Salmon\Io\Writer;
 use Salmon\Node\Expression;
 use Salmon\Node\Parameter;
 use Salmon\SourceLocation;
@@ -38,5 +40,10 @@ final class Lambda extends Expression
             unset($freeVariables[$parameter->name]);
         }
         return $freeVariables;
+    }
+
+    public function generate(Generate $generate, Writer $writer): string
+    {
+        throw new \Exception('Not yet implemented: ' . __METHOD__);
     }
 }

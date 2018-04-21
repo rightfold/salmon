@@ -3,6 +3,8 @@ declare(strict_types = 1);
 
 namespace Salmon\Node\Expression;
 
+use Salmon\Generate;
+use Salmon\Io\Writer;
 use Salmon\Node\Expression;
 use Salmon\Node\Type;
 use Salmon\SourceLocation;
@@ -33,5 +35,12 @@ final class Cast extends Expression
     public function freeVariables(): array
     {
         return $this->value->freeVariables();
+    }
+
+    public function generate(Generate $generate, Writer $writer): string
+    {
+        $value = $this->value->generate($generate, $writer);
+        $type = $this->type->generateTypeHint($generate);
+        return '((' . $type . ')' . $value . ')';
     }
 }

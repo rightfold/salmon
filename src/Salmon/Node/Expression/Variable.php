@@ -3,6 +3,8 @@ declare(strict_types = 1);
 
 namespace Salmon\Node\Expression;
 
+use Salmon\Generate;
+use Salmon\Io\Writer;
 use Salmon\Node\Expression;
 use Salmon\SourceLocation;
 
@@ -24,5 +26,10 @@ final class Variable extends Expression
     public function freeVariables(): array
     {
         return [$this->name => NULL];
+    }
+
+    public function generate(Generate $generate, Writer $writer): string
+    {
+        return '$' . $this->name;
     }
 }

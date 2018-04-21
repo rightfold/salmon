@@ -3,6 +3,8 @@ declare(strict_types = 1);
 
 namespace Salmon\Node\Expression;
 
+use Salmon\Generate;
+use Salmon\Io\Writer;
 use Salmon\Node\Expression;
 use Salmon\SourceLocation;
 
@@ -41,5 +43,18 @@ final class FunctionCall extends Expression
         }
 
         return $freeVariables;
+    }
+
+    public function generate(Generate $generate, Writer $writer): string
+    {
+        $function = $this->function->generate($generate, $writer);
+
+        $arguments = [];
+        foreach ($this->arguments as $argument)
+        {
+            $arguments[] = $argument->generate($generate, $writer);
+        }
+
+        return $function . '(' . \implode(', ', $arguments) . ')';
     }
 }
